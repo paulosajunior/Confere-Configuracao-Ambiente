@@ -1,0 +1,26 @@
+package runners;
+
+import org.junit.runner.RunWith;
+
+import cucumber.api.CucumberOptions;
+import cucumber.api.SnippetType;
+import cucumber.api.junit.Cucumber;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(
+plugin = { "pretty", "html:src/test/resources/relatorios",
+/*"json:src/test/resources/relatorios/cucumber.json",
+"junit:src/test/resources/relatorios/cucumber.xml" */},             //Relatórios
+features = {"src/test/resources/features/calculadora.feature" },   // Informar a especificação com o caminho 
+//tags = {“@smoke”},           //Utilizado para execução de um teste específico assinalado na feature
+monochrome = true,       //Retira os caracteres estranhos da saída do console do passo acima
+glue = { "steps" },             //Nome do pacote que está o teste a ser executado
+snippets = SnippetType.CAMELCASE,             //Cria a assinatura dos métodos sem underline
+dryRun = false,                //Valida o mapeamento, sem executar o teste
+strict = false                    //Falha se um passo estiver indefinido. 
+)
+
+
+public class Runner {
+
+}
